@@ -17,13 +17,23 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     var titleArray = [String]()
     var taskArray = [String]()
     
-    
+    var arrayNumber:Int!
+    var beforeData:Bool! = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleArray = saveData.array(forKey: "title")as![String]
         taskArray = saveData.array(forKey: "task")as![String]
+        
+        if arrayNumber == nil{
+            
+            beforeData = false
+            
+        }else{
+            titleTextField.text = titleArray[arrayNumber]
+            taskTextField.text = taskArray[arrayNumber]
+        }
         
         titleTextField.delegate = self
         taskTextField.delegate = self
@@ -33,14 +43,25 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     
     @IBAction func saveButton(){
         
+        if beforeData == false{
+            
         titleArray.append(titleTextField.text!)
         taskArray.append(taskTextField.text!)
+            
+        }else{
+            
+            titleArray[arrayNumber] = titleTextField.text!
+            taskArray[arrayNumber] = taskTextField.text!
+            
+        }
         
         saveData.set(titleArray, forKey: "title")
         saveData.set(taskArray, forKey: "task")
+            
         
-        //self.navigationController?.popToRootViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+            //self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -49,11 +70,11 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         return true
     }
     
-    @IBAction func returnButton(){
-        
-        //self.navigationController?.popToRootViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func returnButton(){
+//
+//        self.navigationController?.popToRootViewController(animated: true)
+//        //self.dismiss(animated: true, completion: nil)
+//    }
 
 
 }

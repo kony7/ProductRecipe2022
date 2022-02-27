@@ -19,6 +19,9 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         table.reloadData()
+        if let indexPath = table.indexPathForSelectedRow{
+            table.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     override func viewDidLoad() {
@@ -34,6 +37,7 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
         taskArray = saveData.array(forKey: "task")as![String]
         
         table.dataSource = self
+        table.delegate = self
         
 
         // Do any additional setup after loading the view.
@@ -51,6 +55,17 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         cell?.textLabel?.text = titleArray[indexPath.row]
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "next", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "next"{
+            let nextView = segue.destination as! ViewController
+            nextView.arrayNumber = sender as? Int
+        }
     }
     
 
