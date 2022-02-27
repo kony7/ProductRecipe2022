@@ -14,7 +14,7 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
     let saveData: UserDefaults = UserDefaults.standard
     
     var titleArray = [String]()
-    var taskArray = [String]()
+  //  var taskArray = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,12 +29,14 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         saveData.register(defaults: ["title":"NoTitle"])
         saveData.register(defaults: ["task":"NoTask"])
+        saveData.register(defaults: ["start":Date()])
+        saveData.register(defaults: ["finish":Date()])
 
 //        saveData.set(titleArray, forKey: "title")
 //        saveData.set(taskArray, forKey: "task")
         
         titleArray = saveData.array(forKey: "title")as![String]
-        taskArray = saveData.array(forKey: "task")as![String]
+//      taskArray = saveData.array(forKey: "task")as![String]
         
         table.dataSource = self
         table.delegate = self

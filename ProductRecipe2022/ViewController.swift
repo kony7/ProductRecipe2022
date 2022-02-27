@@ -14,8 +14,13 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var titleTextField:UITextField!
     @IBOutlet var taskTextField:UITextField!
     
+    @IBOutlet var startDayPicker:UIDatePicker!
+    @IBOutlet var finishDayPicker:UIDatePicker!
+    
     var titleArray = [String]()
     var taskArray = [String]()
+    var startDayArray = [Date]()
+    var finishDayArray = [Date]()
     
     var arrayNumber:Int!
     var beforeData:Bool! = true
@@ -25,6 +30,8 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         
         titleArray = saveData.array(forKey: "title")as![String]
         taskArray = saveData.array(forKey: "task")as![String]
+        startDayArray = saveData.array(forKey: "start")as![Date]
+        finishDayArray = saveData.array(forKey: "finish")as![Date]
         
         if arrayNumber == nil{
             
@@ -33,6 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         }else{
             titleTextField.text = titleArray[arrayNumber]
             taskTextField.text = taskArray[arrayNumber]
+            startDayPicker.date = startDayArray[arrayNumber]
+            finishDayPicker.date = finishDayArray[arrayNumber]
         }
         
         titleTextField.delegate = self
@@ -45,18 +54,24 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         
         if beforeData == false{
             
-        titleArray.append(titleTextField.text!)
-        taskArray.append(taskTextField.text!)
+            titleArray.append(titleTextField.text!)
+            taskArray.append(taskTextField.text!)
+            startDayArray.append(startDayPicker.date)
+            finishDayArray.append(finishDayPicker.date)
             
         }else{
             
             titleArray[arrayNumber] = titleTextField.text!
             taskArray[arrayNumber] = taskTextField.text!
+            startDayArray[arrayNumber] = startDayPicker.date
+            finishDayArray[arrayNumber] = finishDayPicker.date
             
         }
         
         saveData.set(titleArray, forKey: "title")
         saveData.set(taskArray, forKey: "task")
+        saveData.set(startDayArray,forKey: "start")
+        saveData.set(finishDayArray,forKey: "finish")
             
         
         
