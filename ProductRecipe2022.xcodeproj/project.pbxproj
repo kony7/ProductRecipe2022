@@ -16,6 +16,7 @@
 		EE5A1E3327C35580005DD8D0 /* ProductRecipe2022Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A1E3227C35580005DD8D0 /* ProductRecipe2022Tests.swift */; };
 		EE5A1E3D27C35580005DD8D0 /* ProductRecipe2022UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A1E3C27C35580005DD8D0 /* ProductRecipe2022UITests.swift */; };
 		EE5A1E3F27C35580005DD8D0 /* ProductRecipe2022UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A1E3E27C35580005DD8D0 /* ProductRecipe2022UITestsLaunchTests.swift */; };
+		EE5A1E4C27C3693D005DD8D0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A1E4B27C3693D005DD8D0 /* TaskListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EE5A1E3827C35580005DD8D0 /* ProductRecipe2022UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductRecipe2022UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5A1E3C27C35580005DD8D0 /* ProductRecipe2022UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRecipe2022UITests.swift; sourceTree = "<group>"; };
 		EE5A1E3E27C35580005DD8D0 /* ProductRecipe2022UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRecipe2022UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EE5A1E4B27C3693D005DD8D0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				EE5A1E1B27C3557E005DD8D0 /* AppDelegate.swift */,
 				EE5A1E1D27C3557E005DD8D0 /* SceneDelegate.swift */,
+				EE5A1E4B27C3693D005DD8D0 /* TaskListViewController.swift */,
 				EE5A1E1F27C3557E005DD8D0 /* ViewController.swift */,
 				EE5A1E2127C3557E005DD8D0 /* Main.storyboard */,
 				EE5A1E2427C35580005DD8D0 /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5A1E2027C3557E005DD8D0 /* ViewController.swift in Sources */,
+				EE5A1E4C27C3693D005DD8D0 /* TaskListViewController.swift in Sources */,
 				EE5A1E1C27C3557E005DD8D0 /* AppDelegate.swift in Sources */,
 				EE5A1E1E27C3557E005DD8D0 /* SceneDelegate.swift in Sources */,
 			);
