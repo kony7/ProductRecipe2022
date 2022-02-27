@@ -16,7 +16,10 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
     var titleArray = [String]()
     var taskArray = [String]()
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        table.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,9 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // Do any additional setup after loading the view.
     }
+    
+ 
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleArray.count

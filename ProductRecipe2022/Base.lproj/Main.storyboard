@@ -38,7 +38,7 @@
                                     <navigationItem title="みんなのタスク" id="KNa-CK-kPG">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yuM-Tq-vqu">
                                             <connections>
-                                                <segue destination="m12-aj-qMu" kind="showDetail" id="iv5-K2-DGi"/>
+                                                <segue destination="m12-aj-qMu" kind="show" id="B6c-rX-nYn"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

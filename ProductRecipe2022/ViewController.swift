@@ -39,7 +39,8 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         saveData.set(titleArray, forKey: "title")
         saveData.set(taskArray, forKey: "task")
         
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -50,8 +51,8 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     
     @IBAction func returnButton(){
         
-        self.navigationController?.popViewController(animated: true)
-        
+        //self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
 
