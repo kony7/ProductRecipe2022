@@ -7,12 +7,44 @@
 
 import UIKit
 
-class TaskListViewController: UIViewController {
+class TaskListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    @IBOutlet var table: UITableView!
+    
+    let saveData: UserDefaults = UserDefaults.standard
+    
+    var titleArray = [String]()
+    var taskArray = [String]()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveData.register(defaults: ["title":"NoTitle"])
+        saveData.register(defaults: ["task":"NoTask"])
+
+//        saveData.set(titleArray, forKey: "title")
+//        saveData.set(taskArray, forKey: "task")
+        
+        titleArray = saveData.array(forKey: "title")as![String]
+        taskArray = saveData.array(forKey: "task")as![String]
+        
+        table.dataSource = self
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        cell?.textLabel?.text = titleArray[indexPath.row]
+        return cell!
     }
     
 
