@@ -18,7 +18,10 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        titleArray = saveData.object(forKey: "title")as![String]
         table.reloadData()
+        
         if let indexPath = table.indexPathForSelectedRow{
             table.deselectRow(at: indexPath, animated: true)
         }
@@ -27,7 +30,7 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveData.register(defaults: ["title":"NoTitle"])
+        saveData.register(defaults: ["title":[]])
         saveData.register(defaults: ["task":"NoTask"])
         saveData.register(defaults: ["start":Date()])
         saveData.register(defaults: ["finish":Date()])
@@ -35,7 +38,7 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
 //        saveData.set(titleArray, forKey: "title")
 //        saveData.set(taskArray, forKey: "task")
         
-        titleArray = saveData.array(forKey: "title")as![String]
+        titleArray = saveData.object(forKey: "title")as![String]
 //      taskArray = saveData.array(forKey: "task")as![String]
         
         table.dataSource = self

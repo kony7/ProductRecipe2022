@@ -28,15 +28,15 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveData.register(defaults: ["title":"Title"])
-        saveData.register(defaults: ["task":"Task"])
-        saveData.register(defaults: ["start":Date()])
-        saveData.register(defaults: ["finish":Date()])
+        saveData.register(defaults: ["title":[]])
+        saveData.register(defaults: ["task":[]])
+        saveData.register(defaults: ["start":[]])
+        saveData.register(defaults: ["finish":[]])
         
-        titleArray = saveData.array(forKey: "title")as![String]
-        taskArray = saveData.array(forKey: "task")as![String]
-        startDayArray = saveData.array(forKey: "start")as![Date]
-        finishDayArray = saveData.array(forKey: "finish")as![Date]
+        titleArray = saveData.object(forKey: "title")as![String]
+        taskArray = saveData.object(forKey: "task")as![String]
+        startDayArray = saveData.object(forKey: "start")as![Date]
+        finishDayArray = saveData.object(forKey: "finish")as![Date]
         
         if arrayNumber == nil{
             

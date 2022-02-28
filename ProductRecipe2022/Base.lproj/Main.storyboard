@@ -132,6 +132,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="finishDayPicker" destination="mQn-ix-Dcq" id="Ar2-0P-24w"/>
+                        <outlet property="startDayPicker" destination="0RX-t3-uhu" id="F5S-0H-nKa"/>
                         <outlet property="taskTextField" destination="UKU-gG-n3F" id="IWa-M9-1Fm"/>
                         <outlet property="titleTextField" destination="TDn-KR-Xxf" id="Rd4-eN-Emd"/>
                     </connections>
